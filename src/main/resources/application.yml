@@ -15,6 +15,14 @@ eureka:
       defaultZone: http://localhost:8010/eureka
 
 api:
+  zuul:
+    actuator:
+      url:
+        path: /actuator/*
+  users:
+    actuator:
+      url:
+        path: /users-ws/actuator/*
   h2console:
     url:
       path: /users-ws/h2-console/**
@@ -33,3 +41,9 @@ authorization:
 
 token:
   secret: my-secret
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: beans,health,routes,httptrace
